@@ -8,7 +8,7 @@ export const Header = () => {
 				className='bg-darkBlue'
 				sx={{ flexGrow: 1, textAlign: 'center' }}
 			>
-				SAIE - SIGAA
+				SARUE - SIGAA
 			</Typography>
 		</Container>
 	)
