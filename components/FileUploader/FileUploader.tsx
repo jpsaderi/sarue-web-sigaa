@@ -1,9 +1,16 @@
 import { Box, Typography } from '@mui/material'
 import { Container } from '@mui/system'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { uploadFilesMessage, fileLoadedMessage } from './messages'
 
 export const FileUploader = () => {
+	const [uploadMessage, setUploadMessage] = useState(uploadFilesMessage)
+
+	const changeUploadMessage = () => {
+		setUploadMessage(fileLoadedMessage)
+	}
+
 	const onDrop = useCallback((acceptedFiles: any[]) => {
 		acceptedFiles.forEach((file: Blob) => {
 			const reader = new FileReader()
@@ -11,11 +18,9 @@ export const FileUploader = () => {
 			reader.onabort = () => console.log('file reading was aborted')
 			reader.onerror = () => console.log('file reading has failed')
 			reader.onload = () => {
-				// Do whatever you want with the fil    e contents
-				const binaryStr = reader.result
-				console.log(binaryStr)
+				changeUploadMessage()
 			}
-			reader.readAsArrayBuffer(file)
+			reader.readAsText(file)
 		})
 	}, [])
 	const { getRootProps, getInputProps } = useDropzone({ onDrop })
@@ -27,9 +32,7 @@ export const FileUploader = () => {
 		>
 			<input {...getInputProps()} />
 			<Container className=' p-3 text-jusitfy justify-center hover:cursor-pointer items-center border-dashed border-2 border-darkGreen  hover:bg-lightGrey'>
-				<Typography variant='body1'>
-					Arraste o arquivo aqui ou clique para abrir os arquivos selecionados
-				</Typography>
+				<Typography variant='body1'>{uploadMessage}</Typography>
 			</Container>
 		</Container>
 	)

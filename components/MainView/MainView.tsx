@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import { FileUploader } from '../FileUploader/FileUploader'
 

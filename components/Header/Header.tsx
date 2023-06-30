@@ -1,5 +1,5 @@
 import { Container, Typography } from '@mui/material'
-import BarChartIcon from '@mui/icons-material/BarChart'
+import LeaderboardOutlinedIcon from '@mui/icons-material/LeaderboardOutlined'
 
 export const Header = () => {
 	return (
@@ -9,8 +9,8 @@ export const Header = () => {
 				className='bg-darkBlue'
 				sx={{ flexGrow: 1, textAlign: 'center' }}
 			>
-				<BarChartIcon fontSize='large' />
-				SARUE - SIGAA
+				<LeaderboardOutlinedIcon fontSize='large' />
+				Sarue
 			</Typography>
 		</Container>
 	)

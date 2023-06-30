@@ -1,8 +1,6 @@
 import { Container } from '@mui/system'
 
-export const AboutPage = () => {
-    <Container>
-        Sobre o projeto:
-    </Container>
-    
+const AboutPage = () => {
+	return <Container>Sobre o projeto:</Container>
 }
+export default AboutPage

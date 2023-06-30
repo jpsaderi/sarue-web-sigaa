@@ -79,6 +79,7 @@
 }
 
 * {
+	color: white;
 	font-family: 'Poppins', 'Roboto', sans-serif !important;
 	box-sizing: border-box;
 	padding: 0;
