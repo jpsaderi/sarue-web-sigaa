@@ -1,4 +1,4 @@
-import { Header } from '@/components/header'
+import { Header } from '@/components/Header/Header'
 import { Box } from '@mui/material'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'

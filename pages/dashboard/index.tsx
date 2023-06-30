@@ -1,6 +1,6 @@
 import { Container } from '@mui/system'
-import SideNav from '../../components/sideNav'
-import MainView from '../mainView'
+import SideNav from '../../components/SideNav/SideNavMenu/SideNavMenu'
+import MainView from '../../components/MainView/MainView'
 import { Grid } from '@mui/material'
 import * as React from 'react'
 

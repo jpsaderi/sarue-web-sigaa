@@ -29,6 +29,13 @@ const SideNav = () => {
 							<ListItemText>Sobre o projeto</ListItemText>
 						</ListItemButton>
 					</ListItem>
+
+					<ListItem>
+						<ListItemButton className='hover:bg-sky-700'>
+							<ListItemText>Indicadores</ListItemText>
+							<Link href='/'></Link>
+						</ListItemButton>
+					</ListItem>
 				</List>
 			</nav>
 		</Box>
