@@ -4,8 +4,7 @@ import { FileUploader } from '../FileUploader/FileUploader'
 
 export default function MainView() {
 	return (
-		<Container>
-			<Typography>Bem vindo a Mainview!</Typography>
+		<Container className='pt-16'>
 			<FileUploader />
 		</Container>
 	)

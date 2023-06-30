@@ -1,45 +1,18 @@
-import {
-	List,
-	ListItem,
-	ListItemText,
-	ListItemButton,
-	Typography,
-} from '@mui/material'
-import Box from '@mui/system/Box'
-import Link from 'next/link'
+import { Container, List } from '@mui/material'
+import CustomListItem from '../CustomListItem/CustomListItem'
 
-const SideNav = () => {
+const SideNavMenu = () => {
 	return (
-		<Box className='bg-darkGrey fixed h-full w-1/4'>
+		<Container className='bg-darkGrey h-full p-0 '>
 			<nav aria-label='Navegacao principal'>
 				<List>
-					<ListItem>
-						<ListItemButton className='hover:bg-sky-700'>
-							<ListItemText>Indicadores</ListItemText>
-							<Link href='/'></Link>
-						</ListItemButton>
-					</ListItem>
-
-					<ListItem>
-						<ListItemButton
-							className='hover:bg-sky-700'
-							component='a'
-							href='/about'
-						>
-							<ListItemText>Sobre o projeto</ListItemText>
-						</ListItemButton>
-					</ListItem>
-
-					<ListItem>
-						<ListItemButton className='hover:bg-sky-700'>
-							<ListItemText>Indicadores</ListItemText>
-							<Link href='/'></Link>
-						</ListItemButton>
-					</ListItem>
+					<CustomListItem text='Adicionar arquivos' linkRoute='/' />
+					<CustomListItem text='Indicadores' linkRoute='/indicadores' />
+					<CustomListItem text='Sobre o projeto' linkRoute='/about' />
 				</List>
 			</nav>
-		</Box>
+		</Container>
 	)
 }
 
-export default SideNav
+export default SideNavMenu
