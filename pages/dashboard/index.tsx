@@ -1,20 +1,16 @@
-import { Container } from '@mui/system'
-import SideNav from '../../components/SideNav/SideNavMenu/SideNavMenu'
-import MainView from '../../components/MainView/MainView'
+import SideNavMenu from '../../components/SideNav/SideNavMenu/SideNavMenu'
 import { Grid } from '@mui/material'
-import * as React from 'react'
+import { Container } from '@mui/system'
+import MainView from '../../components/MainView/MainView'
 
 export default function Dashboard() {
 	return (
-		<Container
-			sx={{ flexGrow: 1 }}
-			className='h-screen w-screen p-0 max-w-full'
-		>
+		<Container className='max-h-min w-screen p-0 max-w-full'>
 			<Grid container>
-				<Grid container item xs={3} className='h-screen'>
-					<SideNav />
+				<Grid container item xs={2} className='h-screen'>
+					<SideNavMenu />
 				</Grid>
-				<Grid item xs={9}>
+				<Grid item xs={10} className='bg-lightGrey'>
 					<MainView />
 				</Grid>
 			</Grid>

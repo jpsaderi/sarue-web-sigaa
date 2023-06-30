@@ -1,5 +1,6 @@
+import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
-import { Box } from '@mui/material'
+import { Box, Container, Grid } from '@mui/material'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Dashboard from './dashboard'
@@ -19,10 +20,11 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
-				<Box>
+				<Grid className='max-h-screen column'>
 					<Header />
 					<Dashboard />
-				</Box>
+					<Footer />
+				</Grid>
 			</main>
 		</>
 	)
