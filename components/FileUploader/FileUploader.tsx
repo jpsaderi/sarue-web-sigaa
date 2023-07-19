@@ -26,14 +26,29 @@ export const FileUploader = () => {
 	const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 	return (
-		<Container
-			className='p-24 flex items-center  bg-darkGrey w-96 h-96'
-			{...getRootProps()}
-		>
-			<input {...getInputProps()} />
-			<Container className=' p-3 text-jusitfy justify-center hover:cursor-pointer items-center border-dashed border-2 border-darkGreen  hover:bg-lightGrey'>
-				<Typography variant='body1'>{uploadMessage}</Typography>
+		<div>
+			<Typography variant='h6' style={{ marginBottom: '10px' }}>
+				Para reutilizar a busca realizada no SIGAA:
+			</Typography>
+			<Container
+				className='p-24 flex items-center bg-darkGrey w-120 h-96'
+				{...getRootProps()}
+				style={{
+					borderRadius: '8px',
+					boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+					transition: 'background-color 0.3s',
+				}}
+			>
+				<input {...getInputProps()} />
+				<Container
+					className='p-3 text-justify justify-center hover:cursor-pointer items-center border-dashed border-2 border-darkGreen hover:bg-lightGrey'
+					style={{
+						borderRadius: '4px',
+					}}
+				>
+					<Typography variant='body1'>{uploadMessage}</Typography>
+				</Container>
 			</Container>
-		</Container>
+		</div>
 	)
 }
