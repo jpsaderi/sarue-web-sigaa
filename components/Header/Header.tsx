@@ -10,7 +10,7 @@ export const Header = () => {
 				sx={{ flexGrow: 1, textAlign: 'center' }}
 			>
 				<LeaderboardOutlinedIcon fontSize='large' />
-				Sarue
+				SARUÊ - SIGAA
 			</Typography>
 		</Container>
 	)

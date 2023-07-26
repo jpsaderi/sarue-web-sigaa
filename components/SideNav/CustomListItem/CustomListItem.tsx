@@ -4,12 +4,13 @@ import Link from 'next/link'
 
 const CustomListItem = (props: { text: string; linkRoute: string }) => {
 	return (
-		<ListItem>
-			<ListItemButton className='hover:bg-lightGrey'>
-				<ListItemText>{props.text}</ListItemText>
-				<Link href={props.linkRoute}></Link>
-			</ListItemButton>
-		</ListItem>
+		<Link href={props.linkRoute}>
+			<ListItem>
+				<ListItemButton className='hover:bg-lightGrey'>
+					<ListItemText>{props.text}</ListItemText>
+				</ListItemButton>
+			</ListItem>
+		</Link>
 	)
 }
 
