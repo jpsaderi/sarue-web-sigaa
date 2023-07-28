@@ -9,14 +9,12 @@ import { useEffect, useState } from 'react'
 import Disclaimer from '@/components/Disclaimer/Disclaimer'
 
 export default function App({ Component, pageProps }: AppProps) {
-	const [showDisclaimer, setShowDisclaimer] = useState(true)
+	const [showDisclaimer, setShowDisclaimer] = useState(false)
 
 	useEffect(() => {
 		// Verifica se o disclaimer já foi aceito anteriormente
 		const disclaimerAccepted = localStorage.getItem('disclaimerAccepted')
-		if (disclaimerAccepted) {
-			setShowDisclaimer(false)
-		}
+		setShowDisclaimer(disclaimerAccepted !== 'true')
 	}, [])
 
 	const handleAcceptDisclaimer = () => {
