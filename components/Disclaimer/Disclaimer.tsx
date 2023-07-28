@@ -59,7 +59,7 @@ const Disclaimer: React.FC<DisclaimerProps> = ({ open, onAccept }) => {
 					variant='h5'
 					gutterBottom
 				>
-					Disclaimer
+					Termo de uso e Política de privacidade
 				</Typography>
 				<Typography
 					gutterBottom
