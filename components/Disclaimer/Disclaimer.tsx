@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
-import { Box, Button, Checkbox, Typography } from '@mui/material'
+import {
+	Box,
+	Button,
+	Checkbox,
+	List,
+	ListItem,
+	Typography,
+} from '@mui/material'
 import { useRouter } from 'next/router'
+import DisclaimerItem from './DisclaimerItem'
 
 interface DisclaimerProps {
 	open: boolean
@@ -16,14 +24,67 @@ const Disclaimer: React.FC<DisclaimerProps> = ({ open, onAccept }) => {
 	}
 
 	const handleAccept = () => {
-		// Marca o disclaimer como aceito no armazenamento local
 		localStorage.setItem('disclaimerAccepted', 'true')
-		// Executa a função onAccept para avançar para a próxima tela
 		onAccept()
-
-		// Redireciona para a página "/dashboard"
 		router.push('/dashboard')
 	}
+
+	// <DisclaimerItem
+	// 	index={1}
+	// 	title='Sobre o Saruê'
+	// 	description='Este sistema, denominado SARUE (Sistema de Acompanhamento dos
+	// 			Registros Universitários de Extensão), tem como objetivo
+	// 			fornecer informações sobre atividades de extensão
+	// 			universitária com base nos dados obtidos do sistema SIGAA
+	// 			(Sistema Integrado de Gestão de Atividades Acadêmicas) da
+	// 			Universidade de Brasília.'
+	// />
+	// <DisclaimerItem
+	// 	index={2}
+	// 	title='Uso'
+	// 	description='Ao utilizar o SARUE, você concorda que além de coletar informações sobre as atividades de Extensão, ele também irá utilizar seu login e senha do SIGAA para acessar o sistema e, assim, obter os dados necessários para o seu devido funcionamento. Também concorda que as informações coletadas serão utilizadas exclusivamente para o propósito de fornecer e alimentar os serviços e funcionalidades do SARUE.'
+	// />
+	// <DisclaimerItem
+	// 	index={3}
+	// 	title='Funcionamento'
+	// 	description='Os dados obtidos pelo sistema SARUE serão utilizados apenas para a realização do cálculo dos indicadores. Os únicos dados compartilhados com terceiros serão os indicadores, que não fazem referência a dados completos do SIGAA.'
+	// />
+	// <DisclaimerItem
+	// 	index={4}
+	// 	title='Segurança'
+	// 	description='O sistema implementa medidas de segurança para proteger os dados dos usuários, no entanto, é responsabilidade do usuário tomar as devidas precauções para proteger suas informações pessoais, como por exemplo evitar realizar login em computadores de terceiros e em lugares com internet suspeita de falhas de segurança.'
+	// />
+	// <DisclaimerItem
+	// 	index={5}
+	// 	title='Consideraçõs finais'
+
+	const disclaimerItems = [
+		{
+			title: 'Sobre o Saruê',
+			description:
+				'Este sistema, denominado SARUE (Sistema de Acompanhamento dos Registros Universitários de Extensão), tem como objetivo fornecer informações sobre atividades de extensão universitária com base nos dados obtidos do sistema SIGAA (Sistema Integrado de Gestão de Atividades Acadêmicas) da Universidade de Brasília.',
+		},
+		{
+			title: 'Uso',
+			description:
+				'Ao utilizar o SARUE, você concorda que além de coletar informações sobre as atividades de Extensão, ele também irá utilizar seu login e senha do SIGAA para acessar o sistema e, assim, obter os dados necessários para o seu devido funcionamento. Também concorda que as informações coletadas serão utilizadas exclusivamente para o propósito de fornecer e alimentar os serviços e funcionalidades do SARUE.',
+		},
+		{
+			title: 'Funcionamento',
+			description:
+				'Os dados obtidos pelo sistema SARUE serão utilizados apenas para a realização do cálculo dos indicadores. Os únicos dados compartilhados com terceiros serão os indicadores, que não fazem referência a dados completos do SIGAA.',
+		},
+		{
+			title: 'Segurança',
+			description:
+				'O sistema implementa medidas de segurança para proteger os dados dos usuários, no entanto, é responsabilidade do usuário tomar as devidas precauções para proteger suas informações pessoais, como por exemplo evitar realizar login em computadores de terceiros e em lugares com internet suspeita de falhas de segurança.',
+		},
+		{
+			title: 'Consideraçõs finais',
+			description:
+				'Dessa forma, você concorda que todo o conteúdo e dados disponibilizados pelo SARUE são de propriedade da instituição e estão protegidos por direitos autorais e de propriedade intelectual.',
+		},
+	]
 
 	return (
 		<Box
@@ -42,63 +103,73 @@ const Disclaimer: React.FC<DisclaimerProps> = ({ open, onAccept }) => {
 		>
 			<Box
 				sx={{
-					backgroundColor: '#006633',
+					backgroundColor: 'white',
 					padding: '24px',
-					borderRadius: '8px',
+					borderRadius: '36px', // Bordas mais arredondadas
 					boxShadow: 4,
-					maxWidth: '1200 px',
+					maxWidth: '1200px',
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
+					position: 'relative',
+					fontSize: '300px',
 				}}
 			>
-				{/* Texto genérico de disclaimer */}
 				<Typography
 					textAlign='center'
 					fontSize='46px'
 					variant='h5'
+					fontWeight='bold'
 					gutterBottom
+					sx={{
+						position: 'absolute',
+						top: '-78px', // Ajuste essa propriedade conforme necessário
+						left: 0,
+						color: 'primary',
+					}}
 				>
-					Termo de uso e Política de privacidade
+					Termo de consentimento
 				</Typography>
 				<Typography
 					gutterBottom
-					sx={{ textAlign: 'justify', maxWidth: '1224px' }}
+					sx={{
+						textAlign: 'justify',
+						maxWidth: '1224px',
+						color: 'textSecondary',
+					}}
 				>
-					{' '}
-					<span style={{ fontSize: '1.2rem' }}>
-						Este sistema, denominado SARUE (Sistema de Acompanhamento dos
-						Registros Universitários de Extensão), tem como objetivo fornecer
-						informações sobre atividades de extensão universitária com base nos
-						dados do sistema SIGAA (Sistema Integrado de Gestão de Atividades
-						Acadêmicas). Ao utilizar o SARUE, você concorda que além de coletar
-						informações sobre as atividades de Extensão, ele também irá utilizar
-						seu login e senha do SIGAA para acessar o sistema e, assim, obter os
-						dados necessários para o seu devido funcionamento. Também concorda
-						que as informações coletadas serão utilizadas exclusivamente para o
-						propósito de fornecer os serviços e funcionalidades do SARUE. Esses
-						dados serão tratados com sigilo e não serão compartilhados com
-						terceiros sem a devida autorização. O sistema implementa medidas de
-						segurança para proteger os dados dos usuários, no entanto, é
-						responsabilidade do usuário tomar as devidas precauções para
-						proteger suas informações pessoais. Dessa forma, você concorda que
-						todo o conteúdo e dados disponibilizados pelo SARUE são de
-						propriedade da instituição e estão protegidos por direitos autorais
-						e de propriedade intelectual. Sendo assim, ao clicar em "Avançar"
-						você concorda em cumprir as condições acima mencionadas e aceita os
-						termos deste disclaimer.
-					</span>
+					<List sx={{ paddingLeft: 0 }}>
+						{disclaimerItems.map((item, index) => (
+							<DisclaimerItem key={item.title} index={index + 1} {...item} />
+						))}
+					</List>
+					<Typography
+						fontStyle='italic'
+						sx={{ marginTop: 0, color: 'black' }}
+						fontSize='16px'
+						textAlign='center'
+					>
+						Ao clicar em "Avançar" você aceita cumprir as condições acima
+						mencionadas, e concorda com este termo de consentimento.
+					</Typography>
 				</Typography>
 
-				{/* Checkbox para marcar que o usuário aceita os termos */}
+				{/* Checkbox */}
 				<Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
 					<Checkbox
+						sx={{
+							stroke: 'black',
+							'&:hover': { stroke: 'black' },
+						}}
 						checked={accepted}
 						onChange={e => setAccepted(e.target.checked)}
 					/>
-					<Typography variant='body2'>
-						Ao clicar em "Avançar", você concorda com os termos mencionados
-						acima.
+					<Typography
+						variant='body2'
+						sx={{ maxWidth: '800px', textAlign: 'left', color: 'black' }}
+						fontSize='20px'
+					>
+						Concordo com este termo de consentimento
 					</Typography>
 				</Box>
 
@@ -107,8 +178,8 @@ const Disclaimer: React.FC<DisclaimerProps> = ({ open, onAccept }) => {
 					variant='contained'
 					color='primary'
 					onClick={handleAccept}
-					sx={{ mt: 2 }}
-					disabled={!accepted} // Desabilita o botão se o checkbox não foi marcado
+					sx={{ mt: 2, width: '300px', fontSize: '24px', borderRadius: '32px' }}
+					disabled={!accepted}
 				>
 					Avançar
 				</Button>
